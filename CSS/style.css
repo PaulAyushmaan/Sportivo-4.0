@@ -518,7 +518,7 @@ a:hover + .icon {
 .countdown p {
 	text-align: center;
 	font-size: 40px;
-	color: var(--clr-white);
+	color: var(--clr-grey-3);
 	font-weight: 500;
 }
 .countdown span {
@@ -758,4 +758,7 @@ a:hover + .icon {
 		left: 0;
 		margin-left: 20px;
 	}
+}
+.contact {
+	color: var(--clr-white);
 }
