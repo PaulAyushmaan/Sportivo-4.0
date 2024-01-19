@@ -701,6 +701,9 @@ a:hover + .icon {
 		left: 50%;
 		transform: translate(-50%, -50%);
 	}
+	.JStextSpan {
+		color: var(--clr-grey-1);
+	}
 	.JSspan {
 		margin-left: 80px;
 		color: var(--clr-grey-10);

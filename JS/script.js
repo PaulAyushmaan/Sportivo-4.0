@@ -52,7 +52,7 @@ if (x.matches) {
 	imgSlider.innerHTML = `
     <div class="JSinfo">
 						<h2 class="JStitle">Sportivo<br/> <span class="JSspan">4.0</span></h2>
-						<p class="JStext">ANUAL SPORTS MEET 2024</p>
+						<p class="JStext"><span class="JStextSpan">ANUAL</span> SPORTS MEET <Span class="JStextSpan">2024</Span></p>
 						<div class="JSwrapper">
 							<div class="link_wrapper">
 								<a class="registration" href="./registration.html">Registration</a>
@@ -127,5 +127,10 @@ scrollLinks.forEach((link) => {
 	});
 });
 addEventListener('resize', (event) => {
-	autoRefresh();
+	//console.log(window.innerHeight);
+	console.log(window.innerWidth);
+	if (window.innerWidth > 500) {
+		autoRefresh();
+	}
+	//autoRefresh();
 });
