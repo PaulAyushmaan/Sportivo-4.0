@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Registration</title>
+		<!-- <link rel="stylesheet" href="./CSS/style.css" /> -->
+		<link rel="stylesheet" href="./CSS/form.css" />
+	</head>
+
+	<body>
+		<section class="container">
+			<header>Registration Form</header>
+			<form name="submit-to-google-sheet" class="form">
+				<div class="input-box">
+					<label for="name">Enter Your name:</label>
+					<input
+						type="text"
+						id="name"
+						name="name"
+						placeholder="Enter your name"
+						required
+					/>
+					<label for="name">University Roll no:</label>
+					<input
+						type="number"
+						id="name"
+						placeholder="24400"
+						name="University Roll"
+						pattern="[0-9]"
+						required
+					/>
+					<label for="name">Deperment:</label>
+					<input
+						type="text"
+						id="name"
+						name="Department"
+						placeholder="Enter your name"
+						required
+					/>
+				</div>
+				<div class="gender-box">
+					<h3>Gender:</h3>
+					<div class="gender">
+						<input type="radio" id="male" name="gender" value="Male" />
+						<label for="male">Male</label>
+					</div>
+					<div class="gender">
+						<input type="radio" id="female" name="gender" value="Female" />
+						<label for="female">Female</label>
+					</div>
+				</div>
+				<div class="checkBox">
+					<div class="checkBoxTitle">
+						<h2>Select your games:</h2>
+					</div>
+					<div class="checkBoxContainer">
+						<input type="checkbox" id="Cricket" name="Cricket" value="yes" />
+						<label for="Cricket"> Cricket</label><br /><br />
+						<input type="checkbox" id="Shot-put" name="Shot-put" value="yes" />
+						<label for="Shot-put">Shot-put</label><br /><br />
+						<input
+							type="checkbox"
+							id="100-meter-Run"
+							name="100-meter-Run"
+							value="yes"
+						/>
+						<label for="100-meter-Run"> 100 meter Run</label><br /><br />
+						<input
+							type="checkbox"
+							id="Relay-race"
+							name="Relay-race"
+							value="yes"
+						/>
+						<label for="Relay-race"> Relay Race</label><br /><br />
+						<input
+							type="checkbox"
+							id="badminton"
+							name="badminton"
+							value="yes"
+						/>
+						<label for="badminton"> Badminton</label><br /><br />
+						<input
+							type="checkbox"
+							id="Tug-of-war"
+							name="Tug-of-war"
+							value="yes"
+						/>
+						<label for="Tug-of-war"> Tug-of-War</label><br /><br />
+						<input
+							type="checkbox"
+							id="Discus-throw"
+							name="Discus-throw"
+							value="yes"
+						/>
+						<label for="Discus-throw"> Discus-throw</label><br /><br />
+						<input
+							type="checkbox"
+							id="Volly-ball"
+							name="Volly-ball"
+							value="yes"
+						/>
+						<label for="Volly-ball"> Volly Ball</label><br /><br />
+						<input type="checkbox" id="Kho-Kho" name="Kho-Kho" value="yes" />
+						<label for="Kho-Kho"> Kho-Kho</label><br /><br />
+						<input
+							type="checkbox"
+							id="long-jump"
+							name="long-jump"
+							value="yes"
+						/>
+						<label for="long-jump"> Long Jump</label><br /><br />
+						<input
+							type="checkbox"
+							id="musical-chair"
+							name="musical-chair"
+							value="yes"
+						/>
+						<label for="musical-chair">Musical-Chair(Only for Girls)</label
+						><br />
+					</div>
+				</div>
+				<button type="submit" class="button">Submit</button>
+			</form>
+		</section>
+
+		<script>
+			const scriptURL =
+				'https://script.google.com/macros/s/AKfycbzpnUvFyJ7ebhB_gxhbhkVTnFO-38EHTe96DICrQmxErEHVvQzGS4UY4gjCVVqQkOhVAQ/exec';
+			const form = document.forms['submit-to-google-sheet'];
+			const button = document.querySelector('.button');
+			form.addEventListener('submit', (e) => {
+				e.preventDefault();
+				fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+					.then((response) => {
+						console.log('Success!', response);
+						button.innerHTML = 'Submitted ✅';
+						setTimeout(function () {
+							button.innerHTML = 'Submit';
+						}, 5000);
+						form.reset();
+					})
+					.catch((error) => console.error('Error!', error.message));
+			});
+		</script>
+	</body>
+</html>

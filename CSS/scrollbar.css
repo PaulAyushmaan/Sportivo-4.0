@@ -1,0 +1,27 @@
+/* For Webkit browsers (Chrome, Safari) */
+::-webkit-scrollbar {
+	width: 8px; /* Set a width for the scrollbar */
+}
+
+::-webkit-scrollbar-track {
+	display: none; /* Hide the scrollbar track */
+}
+
+::-webkit-scrollbar-thumb {
+	background-color: hsl(209, 61%, 16%); /* Light gray color for the thumb */
+	border: none; /* Border color for the thumb */
+	border-radius: 6px; /* Border-radius for rounded corners */
+	height: 1px;
+}
+
+/* For Firefox */
+body {
+	scrollbar-color: transparent transparent; /* Firefox fallback */
+	scrollbar-width: thin;
+	overflow: auto; /* Important for hiding scrollbar in Webkit browsers */
+}
+
+/* Show the scrollbar on active scroll */
+body.scroll-active {
+	scrollbar-color: #d3d3d3 #f5f5f5; /* Color for thumb and track when scrolling in Firefox */
+}

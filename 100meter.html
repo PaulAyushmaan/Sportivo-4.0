@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>100 meter race</title>
+		<link rel="stylesheet" href="./CSS/form.css" />
+	</head>
+
+	<body>
+		<section class="container">
+			<header>Registration for 100 meter race</header>
+			<form name="submit-to-google-sheet" class="form">
+				<div class="input-box">
+					<label for="name">Name:</label>
+					<input
+						type="text"
+						id="name"
+						name="name"
+						placeholder="Enter your name"
+						required
+					/>
+					<br /><br />
+
+					<label for="name">University Roll no:</label>
+					<input
+						type="number"
+						id="name"
+						name="university_roll"
+						placeholder="24400....."
+						pattern="[0-9]"
+						required
+					/>
+					<br /><br />
+
+					<label for="dept">Select Your Dept:</label>
+					<select name="dept" id="dept">
+						<option value="cse">CSE</option>
+						<option value="cse_ai_ml">CSE(AI&ML)</option>
+						<option value="ece">ECE</option>
+						<option value="me">ME</option>
+					</select>
+				</div>
+				<div class="gender-box">
+					<h3>Gender:</h3>
+					<div class="gender">
+						<input type="radio" id="male" name="gender" value="Male" />
+						<label for="male">Male</label>
+					</div>
+					<div class="gender">
+						<input type="radio" id="female" name="gender" value="Female" />
+						<label for="female">Female</label>
+					</div>
+				</div>
+				<label for="year">Select Your Year:</label>
+				<select name="year" id="year" name="Year">
+					<option value="1st">1st</option>
+					<option value="2nd">2nd</option>
+					<option value="3rd">3rd</option>
+					<option value="4th">4th</option></select
+				><br /><br />
+				<button type="submit" class="button">Submit</button>
+			</form>
+		</section>
+		<script>
+			const scriptURL =
+				'https://script.google.com/macros/s/AKfycbwMlV03gL2Oj-5pOjhoEFvcTAV-7hagBb9JTUZ74czKsGth3iZbeuj8jcMgOE8VdQoq3g/exec';
+			const form = document.forms['submit-to-google-sheet'];
+			const button = document.querySelector('.button');
+
+			form.addEventListener('submit', (e) => {
+				e.preventDefault();
+				fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+					.then((response) => {
+						console.log('Success!', response);
+						button.innerHTML = 'Submitted ✅';
+						setTimeout(function () {
+							button.innerHTML = 'Submit';
+						}, 4000);
+						form.reset();
+					})
+					.catch((error) => console.error('Error!', error.message));
+			});
+		</script>
+	</body>
+</html>
