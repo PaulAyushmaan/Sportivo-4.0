@@ -64,7 +64,8 @@
 						button.innerHTML = 'Submitted ✅';
 						setTimeout(function () {
 							button.innerHTML = 'Submit';
-						}, 5000);
+							window.location.assign('index.html');
+						}, 3000);
 						form.reset();
 					})
 					.catch((error) => console.error('Error!', error.message));
