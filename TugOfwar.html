@@ -267,10 +267,13 @@
 						setTimeout(function () {
 							success.innerHTML = '';
 							window.location.assign('index.html');
-						}, 3000);
+						}, 1000);
 						form.reset();
 					})
 					.catch((error) => console.error('Error!', error.message));
+			});
+			button.addEventListener('click', () => {
+				button.innerHTML = 'Submitted ✅';
 			});
 		</script>
 	</body>

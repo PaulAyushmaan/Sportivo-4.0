@@ -111,14 +111,16 @@
 				fetch(scriptURL, { method: 'POST', body: new FormData(form) })
 					.then((response) => {
 						console.log('Success!', response);
-						button.innerHTML = 'Submitted ✅';
 						setTimeout(function () {
 							button.innerHTML = 'Submit';
 							window.location.assign('index.html');
-						}, 3000);
+						}, 1000);
 						form.reset();
 					})
 					.catch((error) => console.error('Error!', error.message));
+			});
+			button.addEventListener('click', () => {
+				button.innerHTML = 'Submitted ✅';
 			});
 		</script>
 	</body>

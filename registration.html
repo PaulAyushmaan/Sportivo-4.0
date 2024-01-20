@@ -149,7 +149,6 @@
 				<button type="submit" class="button">Submit</button>
 			</form>
 		</section>
-
 		<script>
 			const scriptURL =
 				'https://script.google.com/macros/s/AKfycbzpnUvFyJ7ebhB_gxhbhkVTnFO-38EHTe96DICrQmxErEHVvQzGS4UY4gjCVVqQkOhVAQ/exec';
@@ -160,7 +159,6 @@
 				fetch(scriptURL, { method: 'POST', body: new FormData(form) })
 					.then((response) => {
 						console.log('Success!', response);
-						button.innerHTML = 'Submitted ✅';
 						setTimeout(function () {
 							button.innerHTML = 'Submit';
 							window.location.assign('index.html');
@@ -168,6 +166,9 @@
 						form.reset();
 					})
 					.catch((error) => console.error('Error!', error.message));
+			});
+			button.addEventListener('click', () => {
+				button.innerHTML = 'Submitted ✅';
 			});
 		</script>
 	</body>
