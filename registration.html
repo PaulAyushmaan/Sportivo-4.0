@@ -46,7 +46,6 @@
 						id="Email_Id"
 						placeholder="xyz@gmail.com"
 						name="Email_Id"
-						pattern="[0-9]"
 						required
 					/><br /><br />
 					<label for="dept">Select Your Dept:</label>
@@ -54,11 +53,12 @@
 						<option value="cse">CSE</option>
 						<option value="cse_ai_ml">CSE(AI&ML)</option>
 						<option value="ece">ECE</option>
+						<option value="IT">IT</option>
 						<option value="me">ME</option>
 					</select>
 					<br /><br />
 					<label for="year">Select Your Year:</label>
-					<select name="year_mem_9" id="year">
+					<select name="year" id="year">
 						<option value="1st">1st</option>
 						<option value="2nd">2nd</option>
 						<option value="3rd">3rd</option>
@@ -164,7 +164,7 @@
 						setTimeout(function () {
 							button.innerHTML = 'Submit';
 							window.location.assign('index.html');
-						}, 0);
+						}, 1000);
 						form.reset();
 					})
 					.catch((error) => console.error('Error!', error.message));
