@@ -62,7 +62,6 @@
 						console.log('Success!', response);
 						setTimeout(function () {
 							button.innerHTML = 'Submit';
-							window.location.assign('index.html');
 						}, 1000);
 						form.reset();
 					})
@@ -70,6 +69,9 @@
 			});
 			button.addEventListener('click', () => {
 				button.innerHTML = 'Submitted ✅';
+				setTimeout(function () {
+					window.location.assign('submission.html');
+				}, 1000);
 			});
 		</script>
 	</body>

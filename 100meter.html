@@ -73,10 +73,9 @@
 				fetch(scriptURL, { method: 'POST', body: new FormData(form) })
 					.then((response) => {
 						console.log('Success!', response);
-						button.innerHTML = 'Submitted ✅';
+
 						setTimeout(function () {
 							button.innerHTML = 'Submit';
-							window.location.assign('index.html');
 						}, 1000);
 						form.reset();
 					})
@@ -84,6 +83,9 @@
 			});
 			button.addEventListener('click', () => {
 				button.innerHTML = 'Submitted ✅';
+				setTimeout(function () {
+					window.location.assign('submission.html');
+				}, 1000);
 			});
 		</script>
 	</body>
