@@ -71,6 +71,10 @@
 
 			form.addEventListener('submit', (e) => {
 				e.preventDefault();
+				button.innerHTML = 'Submitted ✅';
+				setTimeout(function () {
+					window.location.assign('submission.html');
+				}, 1000);
 				fetch(scriptURL, { method: 'POST', body: new FormData(form) })
 					.then((response) => {
 						console.log('Success!', response);
@@ -80,12 +84,6 @@
 						form.reset();
 					})
 					.catch((error) => console.error('Error!', error.message));
-			});
-			button.addEventListener('click', () => {
-				button.innerHTML = 'Submitted ✅';
-				setTimeout(function () {
-					window.location.assign('submission.html');
-				}, 1000);
 			});
 		</script>
 	</body>

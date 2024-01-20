@@ -295,14 +295,16 @@
 
 			form.addEventListener('submit', (e) => {
 				e.preventDefault();
+				button.innerHTML = 'Submitted ✅';
+				setTimeout(function () {
+					window.location.assign('submission.html');
+				}, 1000);
 				fetch(scriptURL, { method: 'POST', body: new FormData(form) })
 					.then((response) => {
 						console.log('Success!', response);
-						button.innerHTML = 'Submitted ✅';
 						setTimeout(function () {
 							button.innerHTML = 'Submit';
-							window.location.assign('submission.html');
-						}, 0);
+						}, 1000);
 						form.reset();
 					})
 					.catch((error) => console.error('Error!', error.message));
