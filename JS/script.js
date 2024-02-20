@@ -70,7 +70,7 @@ if (x.matches) {
 						</div>
 					</div>`;
 }
-var countDownDate = new Date('Jan 29, 2024 00:00: 00').getTime();
+var countDownDate = new Date('Feb 29, 2024 00:00: 00').getTime();
 var x = setInterval(function () {
 	var now = new Date().getTime();
 
